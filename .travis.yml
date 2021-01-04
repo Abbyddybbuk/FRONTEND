@@ -8,3 +8,16 @@ before_install:
 
 script:
   - docker run -e CI=true douchebag15/frontend npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "frontend-app"
+  env: "FrontendApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-132149310315"
+  bucket_path: "frontend-app"
+  on:
+    branch: main
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
