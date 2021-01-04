@@ -4,6 +4,7 @@ services:
 
 before_install:
   - docker build -t douchebag15/FRONTEND -f Dockerfile.dev .
+  
 
 script:
   - docker run douchebag15/FRONTEND npm run test -- --coverage
